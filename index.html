@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProRapOffice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <style>
+    /* Background gradient */
+    body {
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Logo Style */
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b, #ffcc33);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Navbar */
+    nav {
+      background: #ffffffcc;
+      backdrop-filter: blur(6px);
+      padding: 0.5rem 1rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* FAQ Card Style */
+    details {
+      margin: 0.5rem 0;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    details:hover {
+      transform: scale(1.01);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Social Buttons */
+    .social-links a {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      margin-left: 5px;
+      transition: opacity 0.2s;
+    }
+    .social-links a:hover {
+      opacity: 0.85;
+    }
+    .yt { background: #FF0000; }
+    .tt { background: #000000; }
+    .ig { background: #E1306C; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="container-fluid">
+    <ul>
+      <li><span class="logo">ProRapOffice</span></li>
+    </ul>
+    <ul class="social-links">
+      <li><a href="https://youtube.com/@prorapofficial?si=jAxWv-doWCVATlsM" target="_blank" class="yt">YouTube</a></li>
+      <li><a href="https://www.tiktok.com/@prorap.official?_t=ZS-8zHX2oJhEoS&_r=1" target="_blank" class="tt">TikTok</a></li>
+      <li><a href="https://www.instagram.com/prorapofficial?igsh=Zm5zZjJvbTZrYmVz" target="_blank" class="ig">Instagram</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="grid">
+
+      <!-- Loksewa Q&A Section -->
+      <section>
+        <hgroup>
+          <h2>Loksewa Most Important Questions and Answers</h2>
+          <h3>Search or add your Q&A easily below</h3>
+        </hgroup>
+
+        <!-- Search bar -->
+        <input type="text" class="search-input" placeholder="Search Loksewa questions..." oninput="filterFAQ(this, 'loksewa')">
+
+        <div class="faq-list" id="loksewa">
+          <details>
+            <summary>Q: Example Loksewa Question 1?</summary>
+            <p>A: Example Answer 1. (Replace with your content)</p>
+          </details>
+
+          <details>
+            <summary>Q: Example Loksewa Question 2?</summary>
+            <p>A: Example Answer 2. (Replace with your content)</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- APF Q&A Section -->
+      <section>
+        <hgroup>
+          <h2>APF Questions and Answers</h2>
+          <h3>Search or add your Q&A easily below</h3>
+        </hgroup>
+
+        <!-- Search bar -->
+        <input type="text" class="search-input" placeholder="Search APF questions..." oninput="filterFAQ(this, 'apf')">
+
+        <div class="faq-list" id="apf">
+          <details>
+            <summary>Q: Example APF Question 1?</summary>
+            <p>A: Example Answer 1. (Replace with your content)</p>
+          </details>
+
+          <details>
+            <summary>Q: Example APF Question 2?</summary>
+            <p>A: Example Answer 2. (Replace with your content)</p>
+          </details>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="container">
+    <small>
+      <a href="#">Privacy</a> • 
+      <a href="#">Contact</a>
+    </small>
+  </footer>
+
+  <script>
+    function filterFAQ(input, sectionId) {
+      const filter = input.value.toLowerCase();
+      const section = document.getElementById(sectionId);
+      const items = section.querySelectorAll("details");
+      items.forEach(item => {
+        const question = item.querySelector("summary").textContent.toLowerCase();
+        item.style.display = question.includes(filter) ? "block" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>
+
+
+
